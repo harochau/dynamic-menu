@@ -36,13 +36,12 @@
         <br>
         <label for="backColor">Цвет фона </label><input type="color" name="backColor" id="backColor" value="#ff7f50">
         <br>
-        <label for="hoverColor">Цвет hover </label><input type="color" name="hoverColor" id="hoverColor"
-            value="#d2691e">
+        <label for="hoverColor">Цвет hover </label><input type="color" name="hoverColor" id="hoverColor" value="#d2691e">
         <br>
         <input type="button" id = "b11" name="b1" value="Создать меню" onclick="menu()">
         <input type="button" value="Сбросить" onclick="reset1()">
     </form>
-    <p id="p1">123</p>
+    <p id="p1"></p>
     <style id="myStyle"></style>
     <div id="myMenu"></div>
     <div id="bigPic"></div>
@@ -73,13 +72,14 @@
         function reset1() {
             
             form1.elemMenu1.value = 'Главная, О компании, Новости';
-            form1.elemMenu1.value = 'Главная, О компании, Новости, Что-то ещё';
+            
 
             
             form1.textColor.value="#ffffff";
             form1.backColor.value="#ff7f50";
-            form1.backColor.value="#d2691e";
-            // myMenu.innerHTML= '';            
+            form1.hoverColor.value="#d2691e";
+            myMenu.innerHTML = '';    
+            form1.b1.value = "Создать меню";        
         }
 
         function showPicture(number){
