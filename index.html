@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin-top: 30px;
+            list-style: none;
+            display: flex;
+        }
+
+        a {
+            padding: 16px;
+            background: #ff7f50;
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #d2691e;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Создать меню</h1>
+    <form name="form1">
+        <p>
+            <label for="elemMenu">Меню: </label>
+            <input type="text" name="elemMenu1" id="elemMenu" value='Главная, О компании, Новости' size="50">
+        </p>
+        <label for="textColor">Цвет текста </label><input type="color" name="textColor" id="textColor" value="#ffffff">
+        <br>
+        <label for="backColor">Цвет фона </label><input type="color" name="backColor" id="backColor" value="#ff7f50">
+        <br>
+        <label for="hoverColor">Цвет hover </label><input type="color" name="hoverColor" id="hoverColor"
+            value="#d2691e">
+        <br>
+        <input type="button" id = "b11" name="b1" value="Создать меню" onclick="menu()">
+        <input type="button" value="Сбросить" onclick="reset1()">
+    </form>
+    <p id="p1">123</p>
+    <style id="myStyle"></style>
+    <div id="myMenu"></div>
+    <div id="bigPic"></div>
+    <!-- <ul>
+        <li><a href="#">main</a></li>
+        <li><a href="#">about</a></li>
+    </ul> -->
+
+    <script>
+        function menu() {
+            let menuItems = form1.elemMenu1.value.split(", ");
+            // console.log(menuItems);
+            let fc = form1.textColor.value;
+            let bc = form1.backColor.value;
+            let hc = form1.hoverColor.value;
+            s = '<ul>';
+            s2 = `a {background: ${bc}; color: ${fc}}
+                a:hover{background: ${hc};}`;
+            for (let i = 0; i < menuItems.length; i++) {
+                s += `<li onclick="showPicture(${i+1})"><a href="#">${menuItems[i]}</a></li>`;
+
+            }
+            s += '</ul>';
+            myMenu.innerHTML = s;
+            myStyle.innerHTML = s2;
+            form1.b1.value = "Обновить меню";
+        }
+        function reset1() {
+            
+            form1.elemMenu1.value = 'Главная, О компании, Новости';
+            form1.elemMenu1.value = 'Главная, О компании, Новости, Что-то ещё';
+
+            
+            form1.textColor.value="#ffffff";
+            form1.backColor.value="#ff7f50";
+            form1.backColor.value="#d2691e";
+            // myMenu.innerHTML= '';            
+        }
+
+        function showPicture(number){
+            let s3 = `<img src = "images/${number}.png" alt="${number}.png" onclick="bigPic.innerHTML=''">`;
+            console.log(s3);
+            bigPic.innerHTML = s3;
+
+        }
+    </script>
+</body>
+
+</html>
